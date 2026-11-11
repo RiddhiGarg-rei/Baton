@@ -8,16 +8,16 @@ Baton helps a team hand a project over to the next person. It ingests a team's n
 
 The backend runs on a free server that sleeps when idle, so **the first load can take up to a minute**. If something fails right away, wait a minute and try again.
 
-1. Click **Create project** and give it a name.
-2. Upload a sample file from [`baton/demo-data/demo-data/`](baton/demo-data/demo-data/), for example `notes/2026-03-12-sync.md` or `chat/core-team-chat.txt`.
-3. Pick an access level for the file.
-4. Open the source and click a chunk to see its text and citation (file and line range).
+1. Open the live app and click **Load demo project**. This creates a synthetic student-club project and uploads nine sample sources (meeting notes, team chat, a task board, repo docs, and two restricted files).
+2. Click any source in the list to see its chunks.
+3. Click a chunk to read its text and its citation (source file and line range).
+4. Check the sources that contain emails or phone numbers to see how many sensitive details were redacted.
 
-Please use only the synthetic sample files. Do not upload real or confidential data.
+You can also click **Create project** to start empty and upload your own `.txt`, `.md` or `.csv` files. Sample files are in [`baton/demo-data/demo-data/`](baton/demo-data/demo-data/). Please use only synthetic data, not real or confidential files.
 
 ## What works
 
-- Create a project
+- Create a project, or load the ready-made demo project
 - Upload `.txt`, `.md` and `.csv` files (up to 1 MB) with an access level
 - Redact sensitive details before storage, with counts shown
 - Split sources into chunks that keep their line numbers
@@ -27,13 +27,14 @@ Please use only the synthetic sample files. Do not upload real or confidential d
 
 - Claim extraction, verification and status labels
 - Exit questions, review and approval, role-based handover views, Q&A
-- Access levels are saved but not enforced; there is no login or roles
+- Access levels are saved but not enforced; there is no login or roles, so every visitor can see every chunk
 - PDF and DOCX uploads and the GitHub connector
+- The free server resets when it restarts, so projects can disappear
 
 ## Tech stack
 
-- **Frontend:** React 18, Vite, Tailwind CSS (GitHub Pages)
-- **Backend:** Python, FastAPI, SQLite (Render)
+- **Frontend:** React 18, Vite, Tailwind CSS (hosted on GitHub Pages)
+- **Backend:** Python, FastAPI, SQLite (hosted on Render)
 - **AI:** none. Redaction and chunking are rule-based.
 
 ## Run locally
