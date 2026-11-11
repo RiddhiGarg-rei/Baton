@@ -1,52 +1,60 @@
-# Baton frontend
+# Baton
 
-React + Vite + Tailwind CSS. Current scope matches backend steps 1 to 4:
+Baton helps a team hand a project over to the next person. It ingests a team's notes, chat and task exports, redacts sensitive details, and splits everything into chunks that each cite their source file and line range.
+
+## Try it
+
+**Live app:** https://riddhigarg-rei.github.io/Baton/
+
+The backend runs on a free server that sleeps when idle, so **the first load can take up to a minute**. If something fails right away, wait a minute and try again.
+
+1. Click **Create project** and give it a name.
+2. Upload a sample file from [`baton/demo-data/demo-data/`](baton/demo-data/demo-data/), for example `notes/2026-03-12-sync.md` or `chat/core-team-chat.txt`.
+3. Pick an access level for the file.
+4. Open the source and click a chunk to see its text and citation (file and line range).
+
+Please use only the synthetic sample files. Do not upload real or confidential data.
+
+## What works
 
 - Create a project
-- Upload a `.txt`, `.md` or `.csv` file with an access level
-- See the sources, how many chunks each has, and how many items were redacted
-- Open any chunk to see its text and citation (for example `notes.md, lines 14-18`)
+- Upload `.txt`, `.md` and `.csv` files (up to 1 MB) with an access level
+- Redact sensitive details before storage, with counts shown
+- Split sources into chunks that keep their line numbers
+- Open any chunk with a source-and-line citation
 
-Not built yet: claims with status labels, the review and approval screens, role-based handover views, and access enforcement.
+## What does not work yet
 
-## Run it
+- Claim extraction, verification and status labels
+- Exit questions, review and approval, role-based handover views, Q&A
+- Access levels are saved but not enforced; there is no login or roles
+- PDF and DOCX uploads and the GitHub connector
 
-You need Node.js 18 or newer, and the backend running first.
+## Tech stack
+
+- **Frontend:** React 18, Vite, Tailwind CSS (GitHub Pages)
+- **Backend:** Python, FastAPI, SQLite (Render)
+- **AI:** none. Redaction and chunking are rule-based.
+
+## Run locally
+
+Backend:
 
 ```bash
-# terminal 1: backend
-cd backend
-source .venv/bin/activate        # Windows: .venv\Scripts\activate
+cd baton/backend/backend
+pip install -r requirements.txt
 uvicorn app.main:app --reload
+```
 
-# terminal 2: frontend
-cd frontend
+Frontend (from the repo root, in a second terminal):
+
+```bash
 npm install
 npm run dev
 ```
 
-Open http://localhost:5173.
+Backend tests: run `pytest` inside `baton/backend/backend`.
 
-## How it talks to the backend
+## Disclosure
 
-The app calls `/api/...` and Vite forwards those requests to `http://127.0.0.1:8000` (see `vite.config.js`),
-so no extra backend settings are needed during development.
-
-## Layout
-
-```
-src/api.js                 every backend call in one place
-src/citation.js            citation label format and access levels
-src/App.jsx                page state: project, sources, selected source
-src/components/
-  ProjectBar.jsx           create or switch project
-  UploadForm.jsx           choose file and access level
-  SourceList.jsx           uploaded sources
-  ChunkViewer.jsx          chunks, plus the citation for the chosen chunk
-  AccessChip.jsx           access level label
-```
-
-## Troubleshooting
-
-- "Cannot reach the backend": start the backend first and check it answers at http://127.0.0.1:8000/health.
-- Blank page: open the browser console (F12) and read the first red error.
+AI assistance was used for code and writing support. Libraries are listed in `package.json` and `baton/backend/backend/requirements.txt`.
