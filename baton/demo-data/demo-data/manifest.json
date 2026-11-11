@@ -1,0 +1,19 @@
+{
+  "project": { "name": "Orbit Workshop Series 2026 (synthetic demo)" },
+  "roles": {
+    "web_developer": { "clearance": ["public", "team"] },
+    "events_lead": { "clearance": ["public", "team", "lead_only"] },
+    "treasurer": { "clearance": ["public", "team", "lead_only", "restricted"] }
+  },
+  "sources": [
+    { "path": "project-repo/README.md", "upload_name": "repo-README.md", "kind": "markdown", "access_level": "public", "description": "Repository README (partly out of date)" },
+    { "path": "project-repo/docs/deploy.md", "upload_name": "deploy.md", "kind": "markdown", "access_level": "team", "description": "Deployment notes" },
+    { "path": "project-repo/issues-export.md", "upload_name": "issues-export.md", "kind": "markdown", "access_level": "team", "description": "Issue tracker export" },
+    { "path": "notes/2026-03-12-sync.md", "upload_name": "notes-2026-03-12.md", "kind": "markdown", "access_level": "team", "description": "March meeting notes" },
+    { "path": "notes/2026-04-02-sync.md", "upload_name": "notes-2026-04-02.md", "kind": "markdown", "access_level": "team", "description": "April meeting notes" },
+    { "path": "chat/core-team-chat.txt", "upload_name": "core-team-chat.txt", "kind": "text", "access_level": "team", "description": "Core team chat export" },
+    { "path": "board/tasks.csv", "upload_name": "tasks.csv", "kind": "csv", "access_level": "team", "description": "Task board export" },
+    { "path": "lead-only/sponsor-agreement-summary.md", "upload_name": "sponsor-agreement-summary.md", "kind": "markdown", "access_level": "lead_only", "description": "Sponsor terms and amount" },
+    { "path": "restricted/finance-ledger.csv", "upload_name": "finance-ledger.csv", "kind": "csv", "access_level": "restricted", "description": "Club finance ledger" }
+  ]
+}
