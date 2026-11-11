@@ -1,0 +1,31 @@
+12/03/2026, 18:42 - Rohan: sync done, notes are in the drive
+12/03/2026, 18:44 - Asha: great. I'll keep the registration form under my account until handover
+12/03/2026, 18:51 - Asha: prof said 12k is fine for the workshop budget
+12/03/2026, 18:52 - Asha: keeping every receipt, the ledger is with me
+13/03/2026, 09:10 - Meera: moving the site to the new host this month, branch is hosting-migration
+13/03/2026, 09:12 - Dev: ok. who pays for the domain this year?
+13/03/2026, 09:15 - Meera: i thought Asha pays it with the club funds
+13/03/2026, 09:16 - Asha: i thought the web team does. it renews 30 June i think
+13/03/2026, 09:20 - Dev: lets sort that later
+21/03/2026, 20:05 - Rohan: dup entries in the registration sheet again :(
+21/03/2026, 20:07 - Meera: same bug as issue 12?
+21/03/2026, 20:08 - Rohan: yes. just filter by email in the sheet, same as last time, then delete the extra rows
+21/03/2026, 20:10 - Meera: should we write that down somewhere
+21/03/2026, 20:10 - Rohan: yeah someday
+28/03/2026, 11:30 - Asha: TechNova confirmed the sponsorship by email, invoice still pending from my side
+28/03/2026, 11:31 - Asha: contact is sponsor.desk@example.com, phone 99999 88888
+28/03/2026, 11:35 - Dev: can someone fix the Acme Labs name in the readme
+28/03/2026, 11:36 - Meera: not me, i am busy with the migration
+02/04/2026, 17:20 - Rohan: Hall B is the new venue for the april workshop, long story, will explain later
+02/04/2026, 17:22 - Dev: ok but why did we leave the main auditorium
+02/04/2026, 17:23 - Rohan: later, call me
+02/04/2026, 17:40 - Rohan: marked the venue task done on the board
+03/04/2026, 10:05 - Meera: migration done on staging, using sqlite now
+03/04/2026, 10:06 - Meera: pasted my deploy key by mistake, ignore: ghp_DEMO1234567890ABCDEFGHIJKLMNOPQRSTUV12
+03/04/2026, 10:07 - Meera: oops. will rotate it
+10/04/2026, 19:00 - Rohan: still waiting for the admin office to confirm hall b, they said next week
+10/04/2026, 19:02 - Asha: ok. the sponsor wants the logo on certificates
+10/04/2026, 19:03 - Asha: shared files folder, admin password: demo-only-1234
+15/04/2026, 08:50 - Dev: reminder that you two leave end of april. please write the handover
+15/04/2026, 08:52 - Rohan: i will, i have a lot in my head about venue, sponsors, everything
+15/04/2026, 08:53 - Asha: same, especially the workspace form and the ledger

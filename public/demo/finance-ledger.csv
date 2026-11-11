@@ -1,0 +1,7 @@
+date,description,amount_inr,type,note
+2026-03-01,Opening club balance,25000,credit,
+2026-03-15,Workshop printing,1800,debit,receipt kept
+2026-03-28,Refreshments deposit,3600,debit,receipt kept
+2026-03-30,Main auditorium deposit,6000,debit,receipt kept
+2026-04-01,Main auditorium deposit refunded,6000,credit,booking cancelled
+2026-04-03,Seminar Hall B booking fee,1500,debit,receipt kept

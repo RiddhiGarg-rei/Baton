@@ -12,6 +12,7 @@ export default function App() {
   const [sources, setSources] = useState([]);
   const [selectedSource, setSelectedSource] = useState(null);
   const [error, setError] = useState("");
+  const [loadingDemo, setLoadingDemo] = useState(false);
 
   const refreshSources = useCallback(async (projectId) => {
     setSources(await api.listSources(projectId));
@@ -43,6 +44,22 @@ export default function App() {
     }
   }
 
+  async function handleLoadDemo() {
+    setError("");
+    setLoadingDemo(true);
+    try {
+      const p = await api.loadDemoProject();
+      localStorage.setItem(STORAGE_KEY, String(p.id));
+      setProject(p);
+      await refreshSources(p.id);
+      setSelectedSource(null);
+    } catch (e) {
+      setError(e.message);
+    } finally {
+      setLoadingDemo(false);
+    }
+  }
+
   function handleSwitch() {
     localStorage.removeItem(STORAGE_KEY);
     setProject(null);
@@ -68,6 +85,25 @@ export default function App() {
 
       <main className="space-y-5">
         <ProjectBar project={project} onCreate={handleCreate} onSwitch={handleSwitch} />
+
+        {!project && (
+          <div className="rounded-lg border border-slate-300 p-4">
+            <p className="mb-3 text-sm">
+              New here? Load a ready-made synthetic student-club project with sample notes, chat,
+              tasks and restricted files.
+            </p>
+            <button
+              type="button"
+              onClick={handleLoadDemo}
+              disabled={loadingDemo}
+              className="rounded-lg bg-slate-900 px-4 py-2 text-sm font-semibold text-white disabled:opacity-60"
+            >
+              {loadingDemo
+                ? "Loading demo… the first load can take up to a minute"
+                : "Load demo project"}
+            </button>
+          </div>
+        )}
 
         {error && (
           <p role="alert" className="rounded-lg bg-rose-100 p-3 text-sm text-rose-900">

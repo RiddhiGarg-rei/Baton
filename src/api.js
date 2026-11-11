@@ -6,7 +6,9 @@ async function request(path, options = {}) {
   try {
     res = await fetch(`${BASE}${path}`, options);
   } catch {
-    throw new Error("Cannot reach the backend. Is it running at http://127.0.0.1:8000 ?");
+    throw new Error(
+      "Cannot reach the backend. If this is the live demo, the free server may be waking up. Wait a minute and try again."
+    );
   }
 
   if (!res.ok) {
@@ -44,3 +46,25 @@ export function uploadSource(projectId, file, accessLevel) {
 export const listChunks = (sourceId) => request(`/sources/${sourceId}/chunks`);
 
 export const getChunk = (chunkId) => request(`/chunks/${chunkId}`);
+const DEMO_FILES = [
+  { file: "2026-03-12-sync.md", level: "team" },
+  { file: "2026-04-02-sync.md", level: "team" },
+  { file: "core-team-chat.txt", level: "team" },
+  { file: "tasks.csv", level: "team" },
+  { file: "project-README.md", level: "team" },
+  { file: "deploy.md", level: "team" },
+  { file: "issues-export.md", level: "team" },
+  { file: "sponsor-agreement-summary.md", level: "lead_only" },
+  { file: "finance-ledger.csv", level: "restricted" },
+];
+
+export async function loadDemoProject() {
+  const project = await createProject("Demo: Student Club Handover");
+  for (const { file, level } of DEMO_FILES) {
+    const res = await fetch(`${import.meta.env.BASE_URL}demo/${file}`);
+    if (!res.ok) throw new Error(`Could not load demo file ${file}`);
+    const blob = await res.blob();
+    await uploadSource(project.id, new File([blob], file), level);
+  }
+  return project;
+}

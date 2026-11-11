@@ -1,0 +1,10 @@
+id,title,owner,status,due,notes
+T1,Book venue for April workshop,Rohan,Done,2026-04-05,
+T2,Draft April schedule,Rohan,Done,2026-04-08,
+T3,Send sponsor invoice,Asha,In progress,2026-04-20,Waiting on final amount
+T4,Finish hosting migration,Meera,In progress,2026-04-25,Branch hosting-migration
+T5,Renew domain,,To do,2026-06-30,
+T6,Fix duplicate registrations,,To do,,Issue 12
+T7,Update README sponsor section,,To do,,
+T8,Prepare certificates with sponsor logo,Rohan,To do,2026-04-28,
+T9,Write handover document,Rohan,To do,2026-04-30,
