@@ -4,6 +4,7 @@ import react from "@vitejs/plugin-react";
 // The browser talks to /api/..., and Vite forwards it to the backend on port 8000.
 // This avoids browser cross-origin (CORS) problems during development.
 export default defineConfig({
+  base: "/Baton/",
   plugins: [react()],
   server: {
     proxy: {
