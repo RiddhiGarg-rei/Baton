@@ -1,5 +1,5 @@
 // All calls to the Baton backend live here, so the rest of the app never builds URLs by hand.
-const BASE = "/api"; // Vite forwards this to http://127.0.0.1:8000 (see vite.config.js)
+const BASE = import.meta.env.VITE_API_URL || "/api"; // Vite forwards this to http://127.0.0.1:8000 (see vite.config.js)
 
 async function request(path, options = {}) {
   let res;
