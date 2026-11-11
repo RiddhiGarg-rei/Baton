@@ -3,6 +3,7 @@
 Run it with:  uvicorn app.main:app --reload
 Then open:    http://127.0.0.1:8000/docs   (interactive page to try every route)
 """
+from fastapi.middleware.cors import CORSMiddleware
 import os
 import sqlite3
 from pathlib import Path
@@ -44,6 +45,12 @@ def create_app(db_path: str | None = None) -> FastAPI:
 
     app = FastAPI(title="Baton API", version="0.1.0")
     app.state.db_path = path
+    app.add_middleware(
+        CORSMiddleware,
+        allow_origins=["https://riddhigarg-rei.github.io", "http://localhost:5173"],
+        allow_methods=["*"],
+        allow_headers=["*"],
+    )
 
     # ---- Step 1: health check -------------------------------------------
     @app.get("/health")
